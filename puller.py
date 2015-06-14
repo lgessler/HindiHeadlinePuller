@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import requests
 from bs4 import BeautifulSoup as BS
 
@@ -12,7 +13,7 @@ divs = soup.find_all('h3', {'class':'hard-news-unit__headline'})
 #`print divs[0],type(divs)
 
 
-for div in divs:
+for div in divs[:1]:
     article = div.find_all('a')[0]['href']
     link = url + article 
     print(("<a href=%s><h1>" + div.find_all('a')[0].contents[0].strip() + "</h1></a>") % link)
